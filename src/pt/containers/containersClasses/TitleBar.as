@@ -81,10 +81,7 @@ package  pt.containers.containersClasses
 		private var _titleText:String = "";
 			
 		/**
-		 * @private (setter)
-		 *
-		 * @langversion 3.0
-		 * @playerversion Flash 9.0.28.0
+		 * @private (setter)；
 		 * override label set text adding setStyle
 		 */		
 		override public function set text(value:String):void

@@ -220,7 +220,8 @@ package pt.containers.containersClasses
 		/**
 		 * @private (protected)
 		 */
-		//Boolean indicating whether title has been drawn.  Used to determine whether 
+		//Boolean indicating whether title has been drawn. 
+		// Used to determine whether 
 		//the elements should be positioned.
 		protected var _titleDrawn:Boolean;
 
@@ -334,7 +335,7 @@ package pt.containers.containersClasses
 		}
 		
 		/**
-		 * Centers the DialogBox		 
+		 *DialogBox	居中	 
 		 */ 
 		public function positionAlert():void
 		{
@@ -346,7 +347,7 @@ package pt.containers.containersClasses
 
 		/**
 		 * Draws a new DialogBox
-		 *
+		 *??????
 		 * @param message - message to be displayed
 		 * @param title - title to be displayed
 		 * @param buttons - array of buttons to be drawn
@@ -405,7 +406,8 @@ package pt.containers.containersClasses
 		 */		
 		override public function setStyle(style:String, value:Object):void 
 		{
-			//Use strict equality so we can set a style to null ... so if the instanceStyles[style] == undefined, null is still set.
+			//Use strict equality so we can set a style to null ... 
+			//so if the instanceStyles[style] == undefined, null is still set.
 			//We also need to work around the specific use case of TextFormats
 			if (instanceStyles[style] === value && !(value is TextFormat)) { return; }
 			if(value is InstanceFactory) 
@@ -427,9 +429,7 @@ package pt.containers.containersClasses
 		
         /**
          * @private (protected)
-         *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
+         *增加头部和按钮组及其相关事件；
 		 */
 		protected override function configUI():void
 		{	
@@ -438,7 +438,7 @@ package pt.containers.containersClasses
 			_titleBar.useHandCursor = true;	
 			_titleBar.name = TITLE;
 			_titleBar.addEventListener(MouseEvent.MOUSE_DOWN, startDragAlert);			
-			_titleBar.addEventListener(ComponentEvent.RESIZE, resizeHandler);
+			_titleBar.addEventListener(ComponentEvent.RESIZE, resizeHandler);//在调整组件大小后调度；
 			this.addChild(_titleBar);
 			_messageBox = new MessageBox();
 			_message = _messageBox.textField;
@@ -454,10 +454,9 @@ package pt.containers.containersClasses
         /**
          * @private (protected)
          *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
 		 */
-		//Fired by the resize event of the buttonBar and titleBar components.  Calls the draw function.
+		//Fired by the resize event of the buttonBar and titleBar components. 
+		// Calls the draw function.
 		protected function resizeHandler(evnt:ComponentEvent):void
 		{
 			var targetName:String = evnt.target.name;
@@ -472,8 +471,6 @@ package pt.containers.containersClasses
         /**
          * @private (protected)
          *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
 		 */
 		//Compare width of title, buttonBar and _maxWidth.  If buttonBar or titleBar 
 		//width is greater than max width, set maxTextWidth and minTextWidth to the 
@@ -540,10 +537,8 @@ package pt.containers.containersClasses
         /**
          * @private (protected)
          *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
 		 */		
-		//Sets dimensions for the background skin of the message box
+		//Sets dimensions(面积，容器，容积) for the background skin of the message box
 		protected function drawSkin():void
 		{
 			if(_skin != this.getDisplayObjectInstance(getStyleValue("skin")))
@@ -569,16 +564,14 @@ package pt.containers.containersClasses
 		
         /**
          * @private (protected)
-         *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
+         *evnt.localX：事件发生点的相对于包含 Sprite 的水平坐标
 		 */				
 		 //Set x and y offsets based on of the mouse down location
 		 //Add mouseMove and mouseUp listeners
 		 //Remove the mouseDown listener 
 		protected function startDragAlert(evnt:MouseEvent):void
 		{
-			_dragOffSetX = Math.round(evnt.localX*evnt.target.scaleX);
+			_dragOffSetX = Math.round(evnt.localX*evnt.target.scaleX);//round 四舍五入
 			_dragOffSetY = Math.round(evnt.localY*evnt.target.scaleY);
 			_stage.addEventListener(MouseEvent.MOUSE_MOVE, dragAlert, false, 0, true);
 			_stage.addEventListener(MouseEvent.MOUSE_UP, stopAlertDrag, false, 0, true);
@@ -588,8 +581,6 @@ package pt.containers.containersClasses
         /**
          * @private (protected)
          *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
 		 */	
 		//Moves the Dialog with the mouse 
 		protected function dragAlert(evnt:MouseEvent):void
@@ -598,15 +589,13 @@ package pt.containers.containersClasses
 			{
 				this.x = evnt.stageX - _dragOffSetX;
 				this.y = evnt.stageY - _dragOffSetY;
-				evnt.updateAfterEvent();		
+				evnt.updateAfterEvent();//如果已修改显示列表，则此事件处理完成后将指示 Flash Player 呈现结果。		
 			}
 		}
 		
         /**
          * @private (protected)
          *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
 		 */		
 		 //Remove mouseMove and mouseUp listeners
 		 //Add the mouseDown listener
