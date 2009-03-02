@@ -5,8 +5,7 @@ package  pt.controls
 	 * and displaying of Alerts.
 	 *
 	 * @see fl.core.UIComponent
-	 */
-	
+	 */	
 	import fl.core.UIComponent;	
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
@@ -15,17 +14,13 @@ package  pt.controls
 	import flash.events.MouseEvent;
 	import flash.filters.BitmapFilter;
 	import flash.filters.BitmapFilterQuality;
-	import flash.filters.BlurFilter;
+	import flash.filters.BlurFilter; 
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;	
 	import pt.containers.containersClasses.DialogBox;
-	import pt.utils.TextUtil;
-
-	
-	
+	import pt.utils.TextUtil;	
 	public class Alert extends UIComponent
-	{
-		
+	{		
 	//--------------------------------------
 	//  Constructor
 	//--------------------------------------
@@ -71,8 +66,7 @@ package  pt.controls
 				_overlay.visible = false;
 				
 			}
-		}
-		
+		}		
 		/**
 		 * @private
 		 */
@@ -386,9 +380,7 @@ package  pt.controls
 		 *  </table>	 
          *
          * @return Alert
-         *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0		 
+         *	 
 		 */			
 		public static function createAlert(container:DisplayObject, 
 							message:String, 
@@ -467,8 +459,7 @@ package  pt.controls
 		 *
 		 * @evnt - Mouse event received from the DialogBox object 
 		 *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0		 
+     	 
 		 */ 
 		public function manageQueue(evnt:MouseEvent):void
 		{		
@@ -518,8 +509,7 @@ package  pt.controls
 		 *
 		 * @return BitmapFilter with specified blur values
 		 *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0		 
+     		 
 		 */
 		public function getBlurFilter():BitmapFilter
 		{
@@ -591,8 +581,7 @@ package  pt.controls
         /**
          * @private (protected)
          *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
+        
 		 */
 		protected override function configUI():void
 		{
@@ -603,8 +592,7 @@ package  pt.controls
         /**
          * @private (protected)
          *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
+  
 		 */	
 		//Set the width and height to that of the stage and redraw the cover object. 
 		protected override function draw():void
@@ -643,8 +631,7 @@ package  pt.controls
          *
          * @param evnt - event fired from the stage
          *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
+
 		 */			
 		//Call the draw function when the stage is resized
 		protected function stageResizeHandler(evnt:Event):void
@@ -667,8 +654,7 @@ package  pt.controls
 		/**
          * @private 
          *
-         * @langversion 3.0
-         * @playerversion Flash 9.0.28.0
+
 		 */
 		private function copyRendererStylesToChild(child:UIComponent,styleMap:Object):void 
 		{

@@ -8,9 +8,9 @@
 	
 	import pt.containers.containersClasses.DialogBox;
 	import pt.containers.containersClasses.MessageBox;
-	import pt.controls.Alert;
 	import pt.controls.AutoSizeButton;
 	import pt.controls.TabBar;
+	import pt.effects.TweenLite;
 
 	public class PTCom extends Sprite
 	{ private var  buttonBar:TabBar;
@@ -58,18 +58,20 @@
 			
 		}
 		private function clickHander(event:MouseEvent):void
-		{   buttonBar.dataProvider =new DataProvider(null);
-			this.removeChild(buttonBar);
-			buttonBar=null;
-			btn.removeEventListener(MouseEvent.CLICK,clickHander);
-			this.removeChild(btn);
-			btn=null;
-			this.removeChild(messageBox);
-			messageBox=null;
-			this.removeChild(dialogBox);
-			dialogBox=null;
-			var  alert:Alert=new Alert();
-			alert=Alert.createAlert(this,"df");
+		{ TweenLite.to(btn, 1, {x:46, y:43});
+			
+//		{   buttonBar.dataProvider =new DataProvider(null);
+//			this.removeChild(buttonBar);
+//			buttonBar=null;
+//			btn.removeEventListener(MouseEvent.CLICK,clickHander);
+//			this.removeChild(btn);
+//			btn=null;
+//			this.removeChild(messageBox);
+//			messageBox=null;
+//			this.removeChild(dialogBox);
+//			dialogBox=null;
+//			var  alert:Alert=new Alert();
+//			alert=Alert.createAlert(this,"df");
 			//GC();		
 		}
 		/**
